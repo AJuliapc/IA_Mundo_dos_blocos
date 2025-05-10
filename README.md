@@ -3,6 +3,7 @@ ____
 
 1. Alberth Viana de Lima 
 2. Ana Júlia Pereira Corrêa
+3. Guilherme Sahdo Maciel
 ____
 
 # Inteligência Artificial - 1º Trabalho Pratico: Planejador para Empilhar blocos de diferente dimensões
