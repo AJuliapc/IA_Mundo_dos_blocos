@@ -253,3 +253,94 @@ Stack limit (0.2Gb) exceeded
 Use the --stack_limit=size[KMG] command line option or
 ?- set_prolog_flag(stack_limit, 2_147_483_648). to double the limit.
 ```
+
+---
+
+### Explicação do Estouro de Memória em `state2` vs. `state1`
+
+O problema de estouro de memória ocorre em `state2` com `goal2a` e `goal2b` devido a **diferenças na complexidade do espaço de busca** entre esses estados e `state1` com `goal1`. Aqui estão os motivos específicos:
+
+---
+
+#### 1. **Complexidade dos Estados Iniciais**
+- **`state1`**:
+  - Blocos estão mais espalhados e há mais posições livres (`clear`).
+  - Exemplo: `a` em `(4,1)`, `b` em `(6,1)`, `c` em `(1,1)`, `d` em `(4,2)`.
+  - Isso limita as ações possíveis a cada passo, reduzindo o ramificação da busca.
+
+- **`state2`**:
+  - Blocos estão mais agrupados e há menos posições livres.
+  - Exemplo: `a` em `(1,2)`, `b` em `(6,1)`, `c` em `(1,1)`, `d` em `(3,1)`.
+  - Isso cria mais ações possíveis (e estados intermediários) porque blocos maiores (como `d` de tamanho 3) exigem mais verificações de estabilidade e posições livres adjacentes.
+
+---
+
+#### 2. **Natureza dos Objetivos**
+- **`goal1`**:
+  - Objetivo simples: mover `a` para `(1,2)` e `d` para `(3,1)`.
+  - Requer poucas ações e não envolve reposicionamento complexo de blocos grandes.
+
+- **`goal2a` e `goal2b`**:
+  - Exigem mover `c` (tamanho 2) para `(2,1)` (em `goal2a`) ou `d` (tamanho 3) para `(3,2)` (em `goal2b`).
+  - Blocos maiores (`c` e `d`) demandam mais verificações de:
+    - Regiões válidas (`valid_region`).
+    - Posições estáveis (`stable`).
+    - Posições livres adjacentes (`clear_positions`).
+  - Cada movimento de um bloco grande gera **mais estados intermediários** para serem armazenados na fila da BFS.
+
+---
+
+#### 3. **Busca em Largura (BFS) e Memória**
+- A BFS armazena **todos os nós do nível atual** antes de avançar para o próximo nível.
+  - Em `state1` + `goal1`, a busca é rasa (poucos níveis) e cada nível tem poucos nós.
+  - Em `state2` + `goal2a/goal2b`, a busca é mais profunda e cada nível tem **muitos nós** devido às combinações de movimentos de blocos grandes.
+- O estouro ocorre porque a fila da BFS cresce exponencialmente com:
+  - Número de ações possíveis por estado.
+  - Profundidade necessária para alcançar o objetivo.
+
+---
+
+#### 4. **Exemplo Prático**
+Suponha que em `state2`:
+- Para mover `d` (tamanho 3), o sistema deve:
+  1. Verificar todas as posições `To` que são válidas para um bloco de tamanho 3.
+  2. Checar se `To` está estável (exige suporte abaixo).
+  3. Garantir que as posições acima de `From` estão livres (`clear_above`).
+- Cada verificação gera novos estados na fila, mesmo que muitos sejam inválidos ou redundantes.
+
+---
+
+### Soluções Possíveis
+1. **Otimizar a Representação de Estados**:
+   - Usar estruturas mais compactas (como bitsets) para `occupied`/`clear`.
+   - Evitar recálculo de condições repetidas (ex: cache de `stable`).
+
+2. **Usar Busca Heurística (A*)**:
+   - Priorizar nós mais próximos do objetivo com uma função heurística (ex: distância de blocos ao destino).
+   - Reduz a memória porque não armazena todos os nós de um nível.
+
+3. **Limitar a Profundidade**:
+   - Implementar **iterative deepening DFS** (IDDFS), que combina BFS com DFS para controle de memória.
+
+4. **Podar Estados Redundantes**:
+   - Identificar e ignorar estados semanticamente iguais (mesma configuração de blocos, mesmo que em ordem diferente na lista).
+
+---
+
+### Comparação Direta
+| Caso               | `state1` + `goal1`       | `state2` + `goal2a/goal2b`  |
+|--------------------|--------------------------|-----------------------------|
+| **Blocos Críticos** | `a` (tamanho 1), `d` (3) | `c` (2), `d` (3)            |
+| **Ações por Nó**   | Poucas (blocos pequenos) | Muitas (blocos grandes)     |
+| **Profundidade**   | Baixa                    | Alta                        |
+| **Memória**        | Controlada               | Estoura (exponencial)       |
+
+---
+
+### Conclusão
+O estouro de memória em `state2` ocorre porque a combinação de:
+1. Blocos grandes (`c` e `d`) com mais restrições de movimento.
+2. Objetivos que exigem reposicionamento complexo.
+3. BFS armazenando todos os nós intermediários.
+
+Para resolver, seria necessário otimizar o algoritmo ou usar técnicas de busca mais eficientes em memória.
