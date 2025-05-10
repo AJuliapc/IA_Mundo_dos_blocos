@@ -29,3 +29,7 @@ seguir os seguintes passos (e REPORTAR CADA UM DELES);
  4.1 Fornecer exatamente o código do livro (disponível neste material do Classroom), principalmente as constraints (restrições) 
  4.2 Pedir para o Chatbot implementar o descrito, considerando goal regression e means-ends do livro
 5) Testar com os exemplos do documento em anexo e corrigir os erros do código usando trace.
+
+# Documentação do código e como rodar 
+
+Para melhor documentação e organização, à parte do README, foi criado BFS.md e Astar.md, com explicações completas dos códigos implentados e como compilá-los. 
