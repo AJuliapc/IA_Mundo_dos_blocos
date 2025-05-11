@@ -529,7 +529,7 @@ Plano encontrado de status3e4 para goalstatus4 em 151 ms:
 true
 ```
 
-O estouro de memória ocorrido em `testar_best_first(status3e4, goalia)` é um problema clássico em algoritmos de busca como o Best-First Search. Vamos analisar as causas:
+O estouro de memória ocorrido em `testar_best_first(status3e4, goalia)` é um problema clássico em algoritmos de busca como o Best-First Search. As causas podem ser diversas, como:
 
 1. **Complexidade do Espaço de Estados**:
    - O problema de empilhamento de blocos tem um espaço de estados extremamente grande
