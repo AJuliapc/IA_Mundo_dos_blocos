@@ -33,4 +33,85 @@ seguir os seguintes passos (e REPORTAR CADA UM DELES);
 
 # Documentação do código e como rodar 
 
-Para melhor documentação e organização, à parte do README, foi criado BFS.md e Astar.md, com explicações completas dos códigos implentados e como compilá-los. 
+Para melhor documentação e organização, à parte do README, foi criado BFS.md e Astar.md, com explicações completas dos códigos implentados e como compilá-los. Mas caso aja pressa em compilar os códigos, aqui o trecho com apenas as linhas de como rodar:
+
+1. A*
+
+```prolog
+% Exemplos de uso:
+
+% Testes com state1:
+%?- testar_astar(state1, goali2).
+%?- testar_astar(state1, goalib).
+%?- testar_astar(state1, goalic).
+%?- testar_astar(state1, goalstatus2).
+%?- testar_astar(state1, goalstatus3).
+%?- testar_astar(state1, goalstatus4).
+
+% Testes com state2:
+%?- testar_astar(state2, goali2).
+%?- testar_astar(state2, goalia).
+%?- testar_astar(state2, goalib).
+%?- testar_astar(state2, goalic).
+%?- testar_astar(state2, goalstatus2).
+%?- testar_astar(state2, goalstatus3).
+%?- testar_astar(state2, goalstatus4).
+
+% Testes com status2:
+%?- testar_astar(status2, goali2).
+%?- testar_astar(status2, goalia).
+%?- testar_astar(status2, goalib).
+%?- testar_astar(status2, goalic).
+%?- testar_astar(status2, goalstatus2).
+%?- testar_astar(status2, goalstatus3).
+%?- testar_astar(status2, goalstatus4).
+
+% Testes com status3e4:
+%?- testar_astar(status3e4, goali2).
+%?- testar_astar(status3e4, goalia).
+%?- testar_astar(status3e4, goalib).
+%?- testar_astar(status3e4, goalic).
+%?- testar_astar(status3e4, goalstatus2).
+%?- testar_astar(status3e4, goalstatus3).
+%?- testar_astar(status3e4, goalstatus4).
+```
+
+2. BFS 
+
+```prolog
+% Exemplos de uso:
+
+% Testes com state1:
+%?- testar_best_first(state1, goali2).
+%?- testar_best_first(state1, goalib).
+%?- testar_best_first(state1, goalic).
+%?- testar_best_first(state1, goalstatus2).
+%?- testar_best_first(state1, goalstatus3).
+%?- testar_best_first(state1, goalstatus4).
+
+% Testes com state2:
+%?- testar_best_first(state2, goali2).
+%?- testar_best_first(state2, goalib).
+%?- testar_best_first(state2, goalic).
+%?- testar_best_first(state2, goalstatus2).
+%?- testar_best_first(state2, goalstatus3).
+%?- testar_best_first(state2, goalstatus4).
+
+% Testes com status2:
+%?- testar_best_first(status2, goali2).
+%?- testar_best_first(status2, goalia).
+%?- testar_best_first(status2, goalib).
+%?- testar_best_first(status2, goalic).
+%?- testar_best_first(status2, goalstatus2).
+%?- testar_best_first(status2, goalstatus3).
+%?- testar_best_first(status2, goalstatus4).
+
+% Testes com status3e4:
+%?- testar_best_first(status3e4, goali2).
+%?- testar_best_first(status3e4, goalia).
+%?- testar_best_first(status3e4, goalib).
+%?- testar_best_first(status3e4, goalic).
+%?- testar_best_first(status3e4, goalstatus2).
+%?- testar_best_first(status3e4, goalstatus3).
+%?- testar_best_first(status3e4, goalstatus4).
+```
