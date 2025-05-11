@@ -224,7 +224,7 @@ Executa a busca A* para um estado inicial e objetivo, mostrando o plano e o temp
 ---
 
 ```prolog
-% Testes individuais:
+% Exemplos de uso:
 
 % Testes com state1:
 %?- testar_astar(state1, goali2).
