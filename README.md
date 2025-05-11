@@ -6,7 +6,7 @@ ____
 3. Guilherme Sahdo Maciel
 ____
 
-# Inteligência Artificial - 1º Trabalho Pratico: Planejador para Empilhar blocos de diferente dimensões
+# Inteligência Artificial - 1º Trabalho Prático: Planejador para Empilhar blocos de diferente dimensões
 
 Implemente o projeto descrito na pagina 403 do capítulo 17 do material (Código: planejadores do livro Bratko) 
 do livro do Bratko, respondendo os pontos referentes às figuras no arquivo T1_MundoDosBlocos.pdf. 
