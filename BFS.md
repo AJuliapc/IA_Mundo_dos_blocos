@@ -270,124 +270,332 @@ Este código implementa um planejador para mover blocos em um tabuleiro 6x4, usa
 
 ### Saída do código 
 
-```prolog 
-testar_bfs(state1, goal1).
+```prolog
+testar_best_first(state1, goali2).
 ```
 
-```smv 
-Plano mínimo encontrado de state1 para goal1:
-[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(1,2))]
+```smv
+Plano encontrado de state1 para goali2 em 77 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1),move1(a,(6,2),(1,2))]
 true
-
-4.445 seconds cpu time
 ```
 
 ```prolog
-testar_bfs(state2, goal2a).
+testar_best_first(state1, goalib).
+```
+
+```smv
+Plano encontrado de state1 para goalib em 30969 ms:
+[move3(d,(4,2),(1,2)),move1(b,(6,1),(5,1)),move1(b,(5,1),(3,3)),move1(a,(4,1),(6,1)),move1(b,(3,3),(6,2)),move3(d,(1,2),(3,1)),move1(b,(6,2),(5,2)),move1(a,(6,1),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(2,2)),move1(a,(4,2),(5,2)),move1(a,(5,2),(6,1)),move3(d,(3,1),(1,3)),move1(a,(6,1),(4,1)),move3(d,(1,3),(3,2)),move3(d,(3,2),(2,3)),move1(a,(4,1),(6,1)),move1(a,(6,1),(3,1)),move3(d,(2,3),(4,1)),move1(b,(2,2),(6,2)),move2(c,(1,1),(4,2)),move1(a,(3,1),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(3,1)),move1(b,(3,1),(2,1)),move1(a,(1,1),(6,2)),move1(b,(2,1),(6,3)),move2(c,(4,2),(1,1)),move1(b,(6,3),(5,2)),move1(a,(6,2,(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,1)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
+
+```prolog
+testar_best_first(state1, goalic).
+```
+
+```smv
+Plano encontrado de state1 para goalic em 38 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(3,1))]
+true
+```
+
+```prolog
+testar_best_first(state1, goalstatus2).
+```
+
+```smv
+Plano encontrado de state1 para goalstatus2 em 30454 ms:
+[move3(d,(4,2),(1,2)),move1(b,(6,1),(5,1)),move1(b,(5,1),(3,3)),move1(a,(4,1),(6,1)),move1(b,(3,3),(6,2)),move3(d,(1,2),(3,1)),move1(b,(6,2),(5,2)),move1(a,(6,1),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(2,2)),move1(a,(4,2),(5,2)),move1(a,(5,2),(6,1)),move3(d,(3,1),(1,3)),move1(a,(6,1),(4,1)),move3(d,(1,3),(3,2)),move3(d,(3,2),(2,3)),move1(a,(4,1),(6,1)),move1(a,(6,1),(3,1)),move3(d,(2,3),(4,1)),move1(b,(2,2),(6,2)),move2(c,(1,1),(4,2)),move1(a,(3,1),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(3,1)),move1(b,(3,1),(2,1)),move1(a,(1,1),(6,2)),move1(b,(2,1),(6,3)),move2(c,(4,2),(1,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,1)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
+
+```prolog
+testar_best_first(state1, goalstatus3).
+```
+
+```smv
+Plano encontrado de state1 para goalstatus3 em 20530 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(2,3)),move1(a,(2,3),(1,3)),move1(b,(6,1),(5,1)),move1(b,(5,1),(4,1)),move1(b,(4,1),(2,3)),move1(a,(1,3),(3,1)),move1(b,(2,3),(6,1)),move1(b,(6,1),(5,1)),move3(d,(1,2),(4,2)),move2(c,(1,1),(5,3)),move1(a,(3,1),(2,1)),move1(a,(2,1),(1,1)),move2(c,(5,3),(2,1)),move1(a,(1,1),(5,3)),move1(a,(5,3),(6,3)),move1(a,(6,3),(3,2)),move3(d,(4,2),(3,3)),move1(b,(5,1),(6,1)),move1(b,(6,1),(4,1)),move1(b,(4,1),(1,1)),move3(d,(3,3),(4,1)),move1(a,(3,2),(5,2)),move1(b,(1,1),(6,2)),move2(c,(2,1),(5,3)),move2(c,(5,3),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(2,2)),move1(a,(5,2),(3,1)),move3(d,(4,1),(3,2)),move3(d,(3,2),(1,3)),move1(a,(3,1),(6,1)),move3(d,(1,3),(3,1)),move1(a,(6,1),(5,2)),move1(b,(2,2),(3,2)),move1(b,(3,2),(6,1)),move2(c,(1,1),(3,2)),move1(b,(6,1),(3,3))]
+true
+```
+
+```prolog
+testar_best_first(state1, goalstatus4).
+```
+
+```smv
+Plano encontrado de state1 para goalstatus4 em 156 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(5,1)),move3(d,(1,2),(4,2)),move2(c,(1,1),(3,1))]
+true
+```
+
+```prolog
+testar_best_first(state2, goali2).
+```
+
+```smv
+Plano encontrado de state2 para goali2 em 0 ms:
+[]
+true
+```
+
+```prolog
+testar_best_first(state2, goalib).
+```
+
+```smv
+Plano encontrado de state2 para goalib em 35773 ms:
+[move1(a,(1,2),(5,2)),move1(b,(6,1),(2,2)),move1(a,(5,2),(6,1)),move3(d,(3,1),(1,3)),move1(a,(6,1),(4,1)),move3(d,(1,3),(3,2)),move3(d,(3,2),(2,3)),move1(a,(4,1),(6,1)),move1(a,(6,1),(3,1)),move3(d,(2,3),(4,1)),move1(b,(2,2),(6,2)),move2(c,(1,1),(4,2)),move1(a,(3,1),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(3,1)),move1(b,(3,1),(2,1)),move1(a,(1,1),(6,2)),move1(b,(2,1),(6,3)),move2(c,(4,2),(1,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,1)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
+
+```prolog
+testar_best_first(state2, goalic).
+```
+
+```smv
+Plano encontrado de state2 para goalic em 137 ms:
+[move3(d,(3,1),(2,2)),move1(a,(1,2),(3,3)),move1(a,(3,3),(6,2)),move3(d,(2,2),(3,1)),move3(d,(3,1),(1,2)),move1(a,(6,2),(3,1))]
+true
+```
+
+```prolog
+testar_best_first(state2, goalstatus2).
+```
+
+```smv
+Plano encontrado de state2 para goalstatus2 em 35955 ms:
+[move1(a,(1,2),(5,2)),move1(b,(6,1),(2,2)),move1(a,(5,2),(6,1)),move3(d,(3,1),(1,3)),move1(a,(6,1),(4,1)),move3(d,(1,3),(3,2)),move3(d,(3,2),(2,3)),move1(a,(4,1),(6,1)),move1(a,(6,1),(3,1)),move3(d,(2,3),(4,1)),move1(b,(2,2,(6,2)),move2(c,(1,1),(4,2)),move1(a,(3,1),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(3,1)),move1(b,(3,1),(2,1)),move1(a,(1,1),(6,2)),move1(b,(2,1),(6,3)),move2(c,(4,2),(1,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,1)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
+
+```prolog
+testar_best_first(state2, goalstatus3).
+```
+
+```smv
+Plano encontrado de state2 para goalstatus3 em 59 ms:
+[move1(a,(1,2),(5,2)),move2(c,(1,1),(3,2)),move1(b,(6,1),(3,3))]
+true
+```
+
+```prolog
+testar_best_first(state2, goalstatus4).
+```
+
+```smv
+Plano encontrado de state2 para goalstatus4 em 16081 ms:
+[move1(a,(1,2),(5,2)),move1(a,(5,2),(6,2)),move3(d,(3,1),(1,2)),move1(a,(6,2),(5,1)),move3(d,(1,2),(4,2)),move2(c,(1,1),(3,1))]
+true
+```
+
+```prolog
+testar_best_first(status2, goali2).
+```
+
+```smv
+Plano encontrado de status2 para goali2 em 84 ms:
+[move1(b,(2,2),(6,2)),move1(b,(6,2),(5,2)),move1(b,(5,2),(3,1)),move1(b,(3,1),(1,3)),move3(d,(4,1),(2,2)),move3(d,(2,2),(3,1)),move1(b,(1,3),(6,1))]
+true
+```
+
+```prolog
+testar_best_first(status2, goalib).
+```
+
+```smv
+Plano encontrado de status2 para goalib em 1281 ms:
+[move1(a,(1,2),(5,2)),move1(b,(2,2),(3,1)),move1(a,(5,2),(6,2)),move1(b,(3,1),(6,3)),move2(c,(1,1),(4,2)),move2(c,(4,2),(2,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,2)),move1(b,(3,2),(1,1)),move2(c,(2,1),(5,2)),move1(b,(1,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
+
+```prolog
+testar_best_first(status2, goalic).
+```
+
+```smv
+Plano encontrado de status2 para goalic em 5984 ms:
+[move1(a,(1,2),(3,1)),move1(b,(2,2),(6,2)),move1(b,(6,2),(5,2)),move1(b,(5,2),(3,2)),move1(b,(3,2),(1,2)),move3(d,(4,1),(3,2)),move1(b,(1,2),(6,1)),move1(b,(6,1),(5,3)),move1(b,(5,3),(4,3)),move1(b,(4,3),(2,2)),move3(d,(3,2),(1,3)),move1(a,(3,1),(4,1)),move1(a,(4,1),(6,1)),move3(d,(1,3),(3,1)),move1(b,(2,2),(5,2)),move1(b,(5,2),(4,2)),move1(b,(4,2),(1,2)),move3(d,(3,1),(2,2)),move1(a,(6,1),(3,3)),move1(b,(1,2),(6,1)),move1(a,(3,3),(6,2)),move3(d,(2,2),(3,1)),move3(d,(3,1),(1,2)),move1(a,(6,2),(3,1))]
+true
+```
+
+```prolog
+testar_best_first(status2, goalstatus2).
+```
+
+```smv
+Plano encontrado de status2 para goalstatus2 em 1292 ms:
+[move1(a,(1,2),(5,2)),move1(b,(2,2),(3,1)),move1(a,(5,2),(6,2)),move1(b,(3,1),(6,3)),move2(c,(1,1),(4,2)),move2(c,(4,2),(2,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,2)),move1(b,(3,2),(1,1)),move2(c,(2,1),(5,2)),move1(b,(1,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
+
+```prolog
+testar_best_first(status2, goalstatus3).
+```
+
+```smv
+Plano encontrado de status2 para goalstatus3 em 8718 ms:
+[move1(a,(1,2),(5,2)),move1(b,(2,2),(6,2)),move1(a,(5,2),(2,2)),move1(b,(6,2),(5,2)),move1(a,(2,2),(6,2)),move1(b,(5,2),(2,2)),move1(a,(6,2),(3,1)),move3(d,(4,1),(3,2)),move3(d,(3,2),(1,3)),move1(a,(3,1),(6,1)),move3(d,(1,3),(3,1)),move1(a,(6,1),(5,2)),move1(b,(2,2),(3,2)),move1(b,(3,2),(6,1)),move2(c,(1,1),(3,2)),move1(b,(6,1),(3,3))]
+true
+```
+
+```prolog
+testar_best_first(status2, goalstatus4).
+```
+
+```smv
+Plano encontrado de status2 para goalstatus4 em 1420 ms:
+[move1(a,(1,2),(5,2)),move1(b,(2,2),(3,1)),move1(a,(5,2),(6,2)),move1(b,(3,1),(5,2)),move1(b,(5,2),(2,2)),move1(a,(6,2),(3,1)),move3(d,(4,1),(1,3)),move1(a,(3,1),(5,1)),move3(d,(1,3),(4,2)),move1(b,(2,2),(6,1)),move2(c,(1,1),(3,1))]
+true
+```
+
+```prolog
+testar_best_first(status3e4, goali2).
+```
+
+```smv
+Plano encontrado de status3e4 para goali2 em 82 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(1,2))]
+true
+```
+
+```prolog
+testar_best_first(status3e4, goalia).
 ```
 
 ```smv
 Stack limit (0.2Gb) exceeded
-  Stack sizes: local: 3Kb, global: 0.2Gb, trail: 3Kb
-  Stack depth: 12,469, last-call: 100%, Choice points: 13
+  Stack sizes: local: 3Kb, global: 0.2Gb, trail: 16Kb
+  Stack depth: 3,020, last-call: 99%, Choice points: 14
   In:
-    [12,469] lists:append([length:809], [length:2], _1946)
-    [2,479] bfs_queue([length:10,799], [length:4], [length:2,449], _1988)
-    [29] bfs('<garbage_collected>', '<garbage_collected>', _2034)
-    [28] testar_bfs(state2, goal2a)
-    [27] swish_trace:swish_call('<garbage_collected>')
+    [3,020] system:'$collect_findall_bag'(_1942, [])
+    [3,018] '$bags':cleanup_bag(<compound (:)/2>, <compound (:)/2>)
+    [3,015] best_first_search_loop(<compound heap/2>, [length:4], [length:2,985], _2012)
+    [29] best_first_search('<garbage_collected>', '<garbage_collected>', _2058)
+    [28] testar_best_first(state2, goalia)
 
 Use the --stack_limit=size[KMG] command line option or
 ?- set_prolog_flag(stack_limit, 2_147_483_648). to double the limit.
 ```
 
----
+```prolog
+testar_best_first(status3e4, goalib).
+```
 
-### Explicação do Estouro de Memória em `state2` vs. `state1`
+```smv
+Plano encontrado de status3e4 para goalib em 31011 ms:
+[move3(d,(4,2),(1,2)),move1(b,(6,1),(5,1)),move1(b,(5,1),(3,3)),move1(a,(4,1),(6,1)),move1(b,(3,3),(6,2)),move3(d,(1,2),(3,1)),move1(b,(6,2),(5,2)),move1(a,(6,1),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(2,2)),move1(a,(4,2),(5,2)),move1(a,(5,2),(6,1)),move3(d,(3,1),(1,3)),move1(a,(6,1),(4,1)),move3(d,(1,3,(3,2)),move3(d,(3,2),(2,3)),move1(a,(4,1),(6,1)),move1(a,(6,1),(3,1)),move3(d,(2,3),(4,1)),move1(b,(2,2),(6,2)),move2(c,(1,1),(4,2)),move1(a,(3,1),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(3,1)),move1(b,(3,1),(2,1)),move1(a,(1,1),(6,2)),move1(b,(2,1),(6,3)),move2(c,(4,2),(1,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,1)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
 
-O problema de estouro de memória ocorre em `state2` com `goal2a` e `goal2b` devido a **diferenças na complexidade do espaço de busca** entre esses estados e `state1` com `goal1`. Aqui estão os motivos específicos:
+```prolog
+testar_best_first(status3e4, goalic).
+```
 
----
+```smv
+Plano encontrado de status3e4 para goalic em 39 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(3,1))]
+true
+```
 
-#### 1. **Complexidade dos Estados Iniciais**
-- **`state1`**:
-  - Blocos estão mais espalhados e há mais posições livres (`clear`).
-  - Exemplo: `a` em `(4,1)`, `b` em `(6,1)`, `c` em `(1,1)`, `d` em `(4,2)`.
-  - Isso limita as ações possíveis a cada passo, reduzindo o ramificação da busca.
+```prolog
+testar_best_first(status3e4, goalstatus2).
+```
 
-- **`state2`**:
-  - Blocos estão mais agrupados e há menos posições livres.
-  - Exemplo: `a` em `(1,2)`, `b` em `(6,1)`, `c` em `(1,1)`, `d` em `(3,1)`.
-  - Isso cria mais ações possíveis (e estados intermediários) porque blocos maiores (como `d` de tamanho 3) exigem mais verificações de estabilidade e posições livres adjacentes.
+```smv
+Plano encontrado de status3e4 para goalstatus2 em 30743 ms:
+[move3(d,(4,2),(1,2)),move1(b,(6,1),(5,1)),move1(b,(5,1),(3,3)),move1(a,(4,1),(6,1)),move1(b,(3,3),(6,2)),move3(d,(1,2),(3,1)),move1(b,(6,2),(5,2)),move1(a,(6,1),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(2,2)),move1(a,(4,2),(5,2)),move1(a,(5,2),(6,1)),move3(d,(3,1),(1,3)),move1(a,(6,1),(4,1)),move3(d,(1,3),(3,2)),move3(d,(3,2),(2,3)),move1(a,(4,1),(6,1)),move1(a,(6,1),(3,1)),move3(d,(2,3),(4,1)),move1(b,(2,2),(6,2)),move2(c,(1,1),(4,2)),move1(a,(3,1),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(3,1)),move1(b,(3,1),(2,1)),move1(a,(1,1),(6,2)),move1(b,(2,1),(6,3)),move2(c,(4,2),(1,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,1)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+```
 
----
+```prolog
+testar_best_first(status3e4, goalstatus3).
+```
 
-#### 2. **Natureza dos Objetivos**
-- **`goal1`**:
-  - Objetivo simples: mover `a` para `(1,2)` e `d` para `(3,1)`.
-  - Requer poucas ações e não envolve reposicionamento complexo de blocos grandes.
+```smv
+Plano encontrado de status3e4 para goalstatus3 em 20539 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(2,3)),move1(a,(2,3),(1,3)),move1(b,(6,1),(5,1)),move1(b,(5,1),(4,1)),move1(b,(4,1),(2,3)),move1(a,(1,3),(3,1)),move1(b,(2,3),(6,1)),move1(b,(6,1),(5,1)),move3(d,(1,2),(4,2)),move2(c,(1,1),(5,3)),move1(a,(3,1),(2,1)),move1(a,(2,1),(1,1)),move2(c,(5,3),(2,1)),move1(a,(1,1),(5,3)),move1(a,(5,3),(6,3)),move1(a,(6,3),(3,2)),move3(d,(4,2),(3,3)),move1(b,(5,1),(6,1)),move1(b,(6,1),(4,1)),move1(b,(4,1),(1,1)),move3(d,(3,3),(4,1)),move1(a,(3,2),(5,2)),move1(b,(1,1),(6,2)),move2(c,(2,1),(5,3)),move2(c,(5,3),(1,1)),move1(b,(6,2),(5,3)),move1(b,(5,3),(2,2)),move1(a,(5,2),(3,1)),move3(d,(4,1),(3,2)),move3(d,(3,2),(1,3)),move1(a,(3,1),(6,1)),move3(d,(1,3),(3,1)),move1(a,(6,1),(5,2)),move1(b,(2,2),(3,2)),move1(b,(3,2),(6,1)),move2(c,(1,1),(3,2)),move1(b,(6,1),(3,3))]
+true
+```
 
-- **`goal2a` e `goal2b`**:
-  - Exigem mover `c` (tamanho 2) para `(2,1)` (em `goal2a`) ou `d` (tamanho 3) para `(3,2)` (em `goal2b`).
-  - Blocos maiores (`c` e `d`) demandam mais verificações de:
-    - Regiões válidas (`valid_region`).
-    - Posições estáveis (`stable`).
-    - Posições livres adjacentes (`clear_positions`).
-  - Cada movimento de um bloco grande gera **mais estados intermediários** para serem armazenados na fila da BFS.
+```prolog
+testar_best_first(status3e4, goalstatus4).
+```
 
----
+```smv
+Plano encontrado de status3e4 para goalstatus4 em 151 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(5,1)),move3(d,(1,2),(4,2)),move2(c,(1,1),(3,1))]
+true
+```
 
-#### 3. **Busca em Largura (BFS) e Memória**
-- A BFS armazena **todos os nós do nível atual** antes de avançar para o próximo nível.
-  - Em `state1` + `goal1`, a busca é rasa (poucos níveis) e cada nível tem poucos nós.
-  - Em `state2` + `goal2a/goal2b`, a busca é mais profunda e cada nível tem **muitos nós** devido às combinações de movimentos de blocos grandes.
-- O estouro ocorre porque a fila da BFS cresce exponencialmente com:
-  - Número de ações possíveis por estado.
-  - Profundidade necessária para alcançar o objetivo.
+O estouro de memória ocorrido em `testar_best_first(status3e4, goalia)` é um problema clássico em algoritmos de busca como o Best-First Search. Vamos analisar as causas:
 
----
+1. **Complexidade do Espaço de Estados**:
+   - O problema de empilhamento de blocos tem um espaço de estados extremamente grande
+   - Cada bloco pode ser movido para múltiplas posições válidas
+   - Para 4 blocos em um grid 6x4, o número de combinações possíveis é exponencial
 
-#### 4. **Exemplo Prático**
-Suponha que em `state2`:
-- Para mover `d` (tamanho 3), o sistema deve:
-  1. Verificar todas as posições `To` que são válidas para um bloco de tamanho 3.
-  2. Checar se `To` está estável (exige suporte abaixo).
-  3. Garantir que as posições acima de `From` estão livres (`clear_above`).
-- Cada verificação gera novos estados na fila, mesmo que muitos sejam inválidos ou redundantes.
+2. **Natureza do Best-First Search**:
+   - Mantém todos os nós expandidos na memória (na heap/fila de prioridade)
+   - Armazena não só o estado atual, mas todo o caminho percorrido até ele
+   - No seu caso, a heap chegou a conter 2,985 nós (como mostrado no log)
 
----
+3. **Heurística Ineficiente**:
+   - Se a heurística não for suficientemente informativa, o algoritmo pode explorar muitos caminhos subóticos
+   - Isso leva a uma expansão excessiva de nós antes de encontrar a solução
 
-### Soluções Possíveis
-1. **Otimizar a Representação de Estados**:
-   - Usar estruturas mais compactas (como bitsets) para `occupied`/`clear`.
-   - Evitar recálculo de condições repetidas (ex: cache de `stable`).
+4. **Limites do Prolog**:
+   - O ambiente Prolog padrão tem limites conservadores de memória (0.2Gb no seu caso)
+   - Cada nó armazenado consome memória para:
+     * Estado atual
+     * Plano acumulado
+     * Caminho percorrido
+     * Informações de heurística
 
-2. **Usar Busca Heurística (A*)**:
-   - Priorizar nós mais próximos do objetivo com uma função heurística (ex: distância de blocos ao destino).
-   - Reduz a memória porque não armazena todos os nós de um nível.
+### Soluções Possíveis:
 
-3. **Limitar a Profundidade**:
-   - Implementar **iterative deepening DFS** (IDDFS), que combina BFS com DFS para controle de memória.
+1. **Aumentar o Limite de Memória**:
+   ```prolog
+   ?- set_prolog_flag(stack_limit, 2_147_483_648). % 2Gb
+   ```
 
-4. **Podar Estados Redundantes**:
-   - Identificar e ignorar estados semanticamente iguais (mesma configuração de blocos, mesmo que em ordem diferente na lista).
+2. **Melhorar a Heurística**:
+   - Desenvolver uma função heurística mais informada
+   - Implementar podas mais agressivas
 
----
+3. **Usar Busca com Limite de Profundidade**:
+   - Implementar versão iterativa (IDA*)
+   - Limitar a profundidade máxima de busca
 
-### Comparação Direta
-| Caso               | `state1` + `goal1`       | `state2` + `goal2a/goal2b`  |
-|--------------------|--------------------------|-----------------------------|
-| **Blocos Críticos** | `a` (tamanho 1), `d` (3) | `c` (2), `d` (3)            |
-| **Ações por Nó**   | Poucas (blocos pequenos) | Muitas (blocos grandes)     |
-| **Profundidade**   | Baixa                    | Alta                        |
-| **Memória**        | Controlada               | Estoura (exponencial)       |
+4. **Otimizações de Memória**:
+   - Armazenar apenas diferenças entre estados
+   - Usar representações mais compactas dos estados
+   - Implementar garbage collection customizado
 
----
+5. **Alternativas Algorítmicas**:
+   - Considerar outros algoritmos como:
+     * Busca em Feixe (Beam Search)
+     * Busca de Custo Uniforme
+     * A* com limitação de memória
 
-### Conclusão
-O estouro de memória em `state2` ocorre porque a combinação de:
-1. Blocos grandes (`c` e `d`) com mais restrições de movimento.
-2. Objetivos que exigem reposicionamento complexo.
-3. BFS armazenando todos os nós intermediários.
+### Análise do Erro Específico:
 
-Para resolver, seria necessário otimizar o algoritmo ou usar técnicas de busca mais eficientes em memória.
+O stack trace mostra que:
+1. O sistema tentou alocar mais memória durante uma operação `findall`
+2. A heap de busca continha 2,985 nós quando o limite foi atingido
+3. Havia 14 pontos de escolha (backtrack points) ativos
+4. A profundidade da recursão chegou a 3,020 níveis
+
+Isso sugere que o algoritmo estava explorando um ramo muito profundo da árvore de busca sem encontrar uma solução, acumulando nós na memória.
+
+### Recomendação Imediata:
+
+Para continuar seus testes, você pode:
+1. Primeiro aumentar o limite de memória como sugerido
+2. Depois, se o problema persistir, implementar uma versão com:
+   - Limite de nós na heap
+   - Podas adicionais
+   - Heurística mais eficiente
+
+O problema específico com `goalia` pode indicar que este estado objetivo é particularmente difícil de alcançar a partir do estado inicial dado, fazendo com que o algoritmo explore um espaço muito grande antes de encontrar uma solução (ou determinar que não há solução).
