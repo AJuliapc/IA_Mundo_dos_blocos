@@ -32,11 +32,17 @@ Define as posições válidas no tabuleiro como pares `(X,Y)` onde `X` está ent
 % Exemplos de estados iniciais e objetivos
 state1([...]).
 state2([...]).
-goal1([...]).
-goal2a([...]).
-goal2b([...]).
+status2([...]).
+status3e4([...]).
+goali2([...]).
+goalia([...]).
+goalib([...]).
+goalic([...]).
+goalstatus2([...]).
+goalstatus3([...]).
+goalstatus4[...]).
 ```
-Define estados iniciais (`state1`, `state2`) e objetivos (`goal1`, `goal2a`, `goal2b`). Cada estado é uma lista de fatos que indicam quais posições estão ocupadas (`occupied`), livres (`clear`), e onde cada bloco está (`on(Block, Position)`).
+Define estados iniciais (`state1`, `state2`) e objetivos (`goali2`, `goalia`, `goalib`). Cada estado é uma lista de fatos que indicam quais posições estão ocupadas (`occupied`), livres (`clear`), e onde cada bloco está (`on(Block, Position)`).
 
 ---
 
@@ -278,10 +284,42 @@ Predicado para testar a busca A* entre um estado inicial e um objetivo, exibindo
 ---
 
 ```prolog
-% Exemplos de uso:
-% ?- testar_astar(state1, goal1).
-% ?- testar_astar(state2, goal2a).
-% ?- testar_astar(state2, goal2b).
+% Testes individuais:
+
+% Testes com state1:
+%?- testar_astar(state1, goali2).
+%?- testar_astar(state1, goalib).
+%?- testar_astar(state1, goalic).
+%?- testar_astar(state1, goalstatus2).
+%?- testar_astar(state1, goalstatus3).
+%?- testar_astar(state1, goalstatus4).
+
+% Testes com state2:
+%?- testar_astar(state2, goali2).
+%?- testar_astar(state2, goalia).
+%?- testar_astar(state2, goalib).
+%?- testar_astar(state2, goalic).
+%?- testar_astar(state2, goalstatus2).
+%?- testar_astar(state2, goalstatus3).
+%?- testar_astar(state2, goalstatus4).
+
+% Testes com status2:
+%?- testar_astar(status2, goali2).
+%?- testar_astar(status2, goalia).
+%?- testar_astar(status2, goalib).
+%?- testar_astar(status2, goalic).
+%?- testar_astar(status2, goalstatus2).
+%?- testar_astar(status2, goalstatus3).
+%?- testar_astar(status2, goalstatus4).
+
+% Testes com status3e4:
+%?- testar_astar(status3e4, goali2).
+%?- testar_astar(status3e4, goalia).
+%?- testar_astar(status3e4, goalib).
+%?- testar_astar(status3e4, goalic).
+%?- testar_astar(status3e4, goalstatus2).
+%?- testar_astar(status3e4, goalstatus3).
+%?- testar_astar(status3e4, goalstatus4).
 ```
 Exemplos de consultas para testar o planejador com diferentes estados e objetivos.
 
@@ -294,74 +332,85 @@ O código implementa um planejador para mover blocos em um tabuleiro 6x4, usando
 ### Saída do código 
 
 ```prolog 
-testar_astar(state1, goal1).
+testar_astar(state1, goali2).
 ```
 
 ```smv 
-[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(1,2))]
+Plano encontrado de situacao2 para goalib em 688 ms:
+[move1(a,(1,2),(5,2)),move1(b,(2,2),(3,1)),move1(a,(5,2),(6,2)),move1(b,(3,1),(6,3)),move2(c,(1,1),(4,2)),move2(c,(4,2),(2,1)),move1(b,(6,3),(5,2)),move1(a,(6,2),(5,3)),move1(a,(5,3),(4,2)),move1(b,(5,2),(3,2)),move1(b,(3,2),(1,1)),move2(c,(2,1),(5,2)),move1(b,(1,1),(6,3)),move1(a,(4,2),(5,3))]
 true
 
-0.162 seconds cpu timePlano mínimo encontrado de state1 para goal1:
+0.697 seconds cpu time
 ```
 
 ```prolog
-testar_astar(state2, goal2a).
+testar_astar(state1, goalib).
 ```
-
-### Análise dos Resultados
-
-#### 1. `testar_astar(state1, goal1)`
-
-```
-testar_astar(state1, goal1).
-Plano mínimo encontrado de state1 para goal1:
-[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(1,2))]
-1true
-0.162 seconds cpu time
-```
-
-- **Resultado**: Um plano mínimo foi encontrado com sucesso.
-- **Plano**:
-  1. `move3(d,(4,2),(1,2))`: Move o bloco `d` (tamanho 3) da posição `(4,2)` para `(1,2)`.
-  2. `move1(a,(4,1),(6,2))`: Move o bloco `a` (tamanho 1) da posição `(4,1)` para `(6,2)`.
-  3. `move3(d,(1,2),(3,1))`: Move o bloco `d` (tamanho 3) da posição `(1,2)` para `(3,1)`.
-  4. `move1(a,(6,2),(1,2))`: Move o bloco `a` (tamanho 1) da posição `(6,2)` para `(1,2)`.
-- **Interpretação**:
-  - O plano mostra a sequência de movimentos necessários para transformar `state1` em `goal1`.
-  - O tempo de CPU (0.162 segundos) indica a eficiência da busca para este caso.
-
-#### 2. `testar_astar(state2, goal2a)`
-
-```
-testar_astar(state2, goal2a).
-Não foi possível encontrar um plano de state2 para goal2a.
-1true
-```
-
-- **Resultado**: Nenhum plano foi encontrado.
-- **Interpretação**:
-  - A busca A* não conseguiu encontrar uma sequência de movimentos que transformasse `state2` em `goal2a`.
-  - Isso pode ocorrer por vários motivos:
-    1. **Inexistência de Solução**: Pode não existir uma sequência de movimentos válida que leve de `state2` para `goal2a` respeitando as restrições do problema.
-    2. **Heurística Subótima**: A heurística utilizada (distância Manhattan) pode não ser suficientemente informativa para guiar a busca de forma eficiente, levando a exploração de caminhos irrelevantes.
-    3. **Limitações do Algoritmo**: A* pode ter dificuldades em certos tipos de problemas, especialmente se o espaço de busca for muito grande ou a heurística não for bem projetada.
-
-#### Possíveis Causas para a Falha em `state2, goal2a`
-
-1. **Restrições de Movimento**:
-   - `state2` tem blocos mais agrupados, o que pode dificultar a movimentação de blocos maiores como `c` (tamanho 2) e `d` (tamanho 3).
-   - As regras de estabilidade e posições livres podem impedir certos movimentos.
-
-2. **Heurística**:
-   - A distância Manhattan pode não capturar a complexidade real do problema. Por exemplo, pode ser necessário mover um bloco para longe do objetivo temporariamente para liberar espaço para outros blocos.
-   - Uma heurística mais sofisticada poderia considerar o número de blocos bloqueando o caminho, ou a necessidade de liberar posições específicas.
-
-3. **Complexidade do Espaço de Busca**:
-   - A combinação de `state2` e `goal2a` pode gerar um espaço de busca muito grande, onde a A* não consegue encontrar uma solução em tempo razoável.
-
-Em resumo, enquanto a A* conseguiu encontrar um plano para `state1, goal1` de forma eficiente, a falha em encontrar um plano para `state2, goal2a` sugere que o problema é mais complexo e pode exigir uma heurística mais sofisticada ou um algoritmo de busca diferente.
 
 ```smv
-Não foi possível encontrar um plano de state2 para goal2a.
+Plano encontrado de state1 para goalib em 7028 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(2,2)),move3(d,(3,1),(1,3)),move1(b,(6,1),(3,1)),move3(d,(1,3),(4,1)),move1(a,(2,2),(4,2)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
 true
+
+7.048 seconds cpu time
 ```
+
+```prolog
+testar_astar(state1, goalic).
+```
+
+```smv
+Plano encontrado de state1 para goalic em 19 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(3,1))]
+true
+
+0.019 seconds cpu time
+```
+
+```prolog
+testar_astar(state1, goalstatus2).
+```
+
+```smv
+Plano encontrado de state1 para goalstatus2 em 7153 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(2,2)),move3(d,(3,1),(1,3)),move1(b,(6,1),(3,1)),move3(d,(1,3),(4,1)),move1(a,(2,2),(4,2)),move2(c,(1,1),(5,2)),move1(b,(3,1),(6,3)),move1(a,(4,2),(5,3))]
+true
+
+7.153 seconds cpu time
+```
+
+```prolog
+testar_astar(state1, goalstatus3).
+```
+
+```smv
+Plano encontrado de state1 para goalstatus3 em 1651 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(6,2)),move3(d,(1,2),(3,1)),move1(a,(6,2),(5,2)),move2(c,(1,1),(3,2)),move1(b,(6,1),(3,3))]
+true
+
+1.651 seconds cpu time
+```
+
+```prolog
+testar_astar(state1, goalstatus4).
+```
+
+```smv
+Plano encontrado de state1 para goalstatus4 em 77 ms:
+[move3(d,(4,2),(1,2)),move1(a,(4,1),(5,1)),move3(d,(1,2),(4,2)),move2(c,(1,1),(3,1))]
+true
+
+0.077 seconds cpu time
+```
+
+Todos os outros estados e metas (goals) foram testados, mas para não extender a quantidade de saídas obtidas e demonstradas, acima é exposto apenas alguns casos. Frisa-se que de todas as metas (goals), apenas uma não foi possível compilar, pois excedeu o limite de memória durante sua execução, que foi o caso de qualquer estado com a meta de ir para goalia. A saída obtida nesse caso é:
+
+```prolog
+testar_astar(status2, goalia).
+```
+
+```smv
+Time limit exceeded
+```
+
+
