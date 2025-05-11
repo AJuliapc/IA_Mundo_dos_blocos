@@ -38,8 +38,8 @@ state2([
     on(a,(1,2)), on(b,(6,1)), on(c,(1,1)), on(d,(3,1))
 ]).
 
-%situação 2
-situacao2([
+%status 2
+status2([
     occupied((1,1)), occupied((1,2)), clear((1,3)), clear((1,4)),
     occupied((2,1)), occupied((2,2)), clear((2,3)), clear((2,4)),
     clear((3,1)), clear((3,2)), clear((3,3)), clear((3,4)),
@@ -51,8 +51,8 @@ situacao2([
     on(a,(1,2)), on(b,(2,2)), on(c,(1,1)), on(d,(4,1))
 ]).
 
-%situação 3 e 4
-situacao3e4([
+%status 3 e 4
+status3e4([
     occupied((1,1)), clear((1,2)), clear((1,3)), clear((1,4)),
     occupied((2,1)), clear((2,2)), clear((2,3)), clear((2,4)),
     clear((3,1)), clear((3,2)), clear((3,3)), clear((3,4)),
@@ -84,18 +84,18 @@ goalic([
     on(a,(3,1)), on(b,(6,1)), on(c,(1,1)), on(d,(1,2))
 ]).
 
-%goalsituacao2
-goalsituacao2([
+%goalstatus2
+goalstatus2([
     on(a,(5,3)), on(b,(6,3)), on(c,(5,2)), on(d,(4,1))
 ]).
 
-%goalsituacao3
-goalsituacao3([
+%goalstatus3
+goalstatus3([
     on(a,(5,2)), on(b,(3,3)), on(c,(3,2)), on(d,(3,1))
 ]).
 
-%goalsituacao4
-goalsituacao4([
+%goalstatus4
+goalstatus4([
     on(a,(5,1)), on(b,(6,1)), on(c,(3,1)), on(d,(4,2))
 ]).
 
@@ -375,40 +375,35 @@ testar_astar(EstadoInicial, Objetivo) :-
 % Testes individuais:
 
 % Testes com state1:
-%?- testar_astar(state1, goal1).
 %?- testar_astar(state1, goali2).
 %?- testar_astar(state1, goalib).
 %?- testar_astar(state1, goalic).
-%?- testar_astar(state1, goalsituacao2).
-%?- testar_astar(state1, goalsituacao3).
-%?- testar_astar(state1, goalsituacao4).
+%?- testar_astar(state1, goalstatus2).
+%?- testar_astar(state1, goalstatus3).
+%?- testar_astar(state1, goalstatus4).
 
 % Testes com state2:
-%?- testar_astar(state2, goal1).
 %?- testar_astar(state2, goali2).
-%?- testar_astar(state2, goalia).
 %?- testar_astar(state2, goalib).
 %?- testar_astar(state2, goalic).
-%?- testar_astar(state2, goalsituacao2).
-%?- testar_astar(state2, goalsituacao3).
-%?- testar_astar(state2, goalsituacao4).
+%?- testar_astar(state2, goalstatus2).
+%?- testar_astar(state2, goalstatus3).
+%?- testar_astar(state2, goalstatus4).
 
-% Testes com situacao2:
-%?- testar_astar(situacao2, goal1).
-%?- testar_astar(situacao2, goali2).
-%?- testar_astar(situacao2, goalia).
-%?- testar_astar(situacao2, goalib).
-%?- testar_astar(situacao2, goalic).
-%?- testar_astar(situacao2, goalsituacao2).
-%?- testar_astar(situacao2, goalsituacao3).
-%?- testar_astar(situacao2, goalsituacao4).
+% Testes com status2:
+%?- testar_astar(status2, goali2).
+%?- testar_astar(status2, goalia).
+%?- testar_astar(status2, goalib).
+%?- testar_astar(status2, goalic).
+%?- testar_astar(status2, goalstatus2).
+%?- testar_astar(status2, goalstatus3).
+%?- testar_astar(status2, goalstatus4).
 
-% Testes com situacao3e4:
-%?- testar_astar(situacao3e4, goal1).
-%?- testar_astar(situacao3e4, goali2).
-%?- testar_astar(situacao3e4, goalia).
-%?- testar_astar(situacao3e4, goalib).
-%?- testar_astar(situacao3e4, goalic).
-%?- testar_astar(situacao3e4, goalsituacao2).
-%?- testar_astar(situacao3e4, goalsituacao3).
-%?- testar_astar(situacao3e4, goalsituacao4).
+% Testes com status3e4:
+%?- testar_astar(status3e4, goali2).
+%?- testar_astar(status3e4, goalia).
+%?- testar_astar(status3e4, goalib).
+%?- testar_astar(status3e4, goalic).
+%?- testar_astar(status3e4, goalstatus2).
+%?- testar_astar(status3e4, goalstatus3).
+%?- testar_astar(status3e4, goalstatus4).
