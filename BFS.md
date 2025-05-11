@@ -539,7 +539,7 @@ O estouro de memória ocorrido em `testar_best_first(status3e4, goalia)` é um p
 2. **Natureza do Best-First Search**:
    - Mantém todos os nós expandidos na memória (na heap/fila de prioridade)
    - Armazena não só o estado atual, mas todo o caminho percorrido até ele
-   - No seu caso, a heap chegou a conter 2,985 nós (como mostrado no log)
+   - No caso do código desenvolvido, a heap chegou a conter 2,985 nós (como mostrado no log)
 
 3. **Heurística Ineficiente**:
    - Se a heurística não for suficientemente informativa, o algoritmo pode explorar muitos caminhos subóticos
@@ -587,15 +587,4 @@ O stack trace mostra que:
 3. Havia 14 pontos de escolha (backtrack points) ativos
 4. A profundidade da recursão chegou a 3,020 níveis
 
-Isso sugere que o algoritmo estava explorando um ramo muito profundo da árvore de busca sem encontrar uma solução, acumulando nós na memória.
-
-### Recomendação Imediata:
-
-Para continuar seus testes, você pode:
-1. Primeiro aumentar o limite de memória como sugerido
-2. Depois, se o problema persistir, implementar uma versão com:
-   - Limite de nós na heap
-   - Podas adicionais
-   - Heurística mais eficiente
-
-O problema específico com `goalia` pode indicar que este estado objetivo é particularmente difícil de alcançar a partir do estado inicial dado, fazendo com que o algoritmo explore um espaço muito grande antes de encontrar uma solução (ou determinar que não há solução).
+Isso sugere que o algoritmo estava explorando um ramo muito profundo da árvore de busca sem encontrar uma solução, acumulando nós na memória. O problema específico com `goalia` pode indicar que este estado objetivo é particularmente difícil de alcançar a partir do estado inicial dado, fazendo com que o algoritmo explore um espaço muito grande antes de encontrar uma solução (ou determinar que não há solução).
