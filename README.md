@@ -33,7 +33,7 @@ seguir os seguintes passos (e REPORTAR CADA UM DELES);
 
 # Documentação do código e como rodar 
 
-Para melhor documentação e organização, à parte do README, foi criado BFS.md e Astar.md, com explicações completas dos códigos implentados e como compilá-los. Mas caso aja pressa em compilar os códigos, aqui o trecho com apenas as linhas de como rodar:
+Frisa-se que foi usado o compilador online `SWISH-Prolog` para testar as codificações feitas e testes. E para melhor documentação e organização, à parte do README, foi criado BFS.md e Astar.md, com explicações completas dos códigos implentados e como compilá-los. Mas caso aja pressa em compilar os códigos, aqui o trecho com apenas as linhas de como rodar no compilador online:
 
 1. A*
 
