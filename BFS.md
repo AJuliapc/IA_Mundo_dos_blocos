@@ -32,15 +32,21 @@ Define as posições válidas no tabuleiro como pares `(X,Y)` onde `X` está ent
 % Exemplos de estados iniciais e objetivos
 state1([...]).
 state2([...]).
+status2([...]).
+status3e4([...]).
 ```
-Define dois estados iniciais (`state1` e `state2`) que descrevem o estado do tabuleiro: quais posições estão ocupadas (`occupied`), livres (`clear`), e onde cada bloco está (`on(Block, Position)`).
+Define dois estados iniciais (`state1`, `state2`, `status2` e `status3e4`) que descrevem o estado do tabuleiro: quais posições estão ocupadas (`occupied`), livres (`clear`), e onde cada bloco está (`on(Block, Position)`).
 
 ---
 
 ```prolog
-goal1([...]).
-goal2a([...]).
-goal2b([...]).
+goali2([...]).
+goalia([...]).
+goalib([...]).
+goalic([...]).
+goalstatus2([...]).
+goalstatus3([...]).
+goalstatus4([...]).
 ```
 Define objetivos (estados finais desejados) para o problema, especificando onde cada bloco deve estar.
 
